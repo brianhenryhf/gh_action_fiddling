@@ -7,4 +7,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo "foo bar" | tee -a $GITHUB_OUTPUT | grep --silent "boo"
+          echo "foo bar" | tee -a /dev/stdout | grep --silent "boo"
