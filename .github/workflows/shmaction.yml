@@ -3,7 +3,7 @@ on:
   push
 
 jobs:
-  printgood:
+  printbad:
     runs-on: ubuntu-latest
     steps:
       - run: |
@@ -11,7 +11,7 @@ jobs:
           # echo "foo bar" | tee -a /dev/stdout | grep --silent "boo"
           echo -e "foo\nbar" > loggo && cat loggo &&  grep --silent "boo" loggo
 
-  printbad:
+  printgood:
     runs-on: ubuntu-latest
     steps:
       - run: |
