@@ -3,10 +3,16 @@ on:
   push
 
 jobs:
-  print:
+  printgood:
     runs-on: ubuntu-latest
     steps:
       - run: |
           # echo "foo bar" | tee -a /dev/tty | grep --silent "boo"
           # echo "foo bar" | tee -a /dev/stdout | grep --silent "boo"
           echo -e "foo\nbar" > loggo && cat loggo &&  grep --silent "boo" loggo
+
+  printbad:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo -e "boo\nbar" > loggo && cat loggo &&  grep --silent "boo" loggo
