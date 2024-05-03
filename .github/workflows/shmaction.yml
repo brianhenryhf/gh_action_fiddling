@@ -1,0 +1,10 @@
+name: nonsense
+on:
+  push
+
+jobs:
+  print:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo -e "foo\nbar" | tee /dev/tty | grep --silent "boo"
