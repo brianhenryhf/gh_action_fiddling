@@ -2,6 +2,11 @@ name: nonsense
 on:
   push
 
+# simulate a test that we figure good/bad on based on grepping output (and pass/fail based on exit code of grep). 
+# but we also want to _see_ the output in the action, so we know why we're failing. this proves a bit challenging.
+# example use is rubocop report which will print fail details vs. a certain string if NO fails.
+
+
 jobs:
   printbad:
     runs-on: ubuntu-latest
