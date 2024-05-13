@@ -14,11 +14,11 @@ jobs:
       - run: |
           # echo "foo bar" | tee -a /dev/tty | grep --silent "boo"
           # echo "foo bar" | tee -a /dev/stdout | grep --silent "boo"
-          echo -e "foo\nbar" > rubocop.out && cat rubocop.out && grep --silent "no offenses detected" rubocop.out
+          echo -e "foo\nbar" &> rubocop.out && cat rubocop.out && grep --silent "no offenses detected" rubocop.out
           
 
   printgood:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo -e "no offenses detected" > rubocop.out && cat rubocop.out && grep --silent "no offenses detected" rubocop.out
+          echo -e "no offenses detected" &> rubocop.out && cat rubocop.out && grep --silent "no offenses detected" rubocop.out
