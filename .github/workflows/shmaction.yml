@@ -5,13 +5,14 @@ on:
 # simulate a test that we figure good/bad on based on grepping output (and pass/fail based on exit code of grep). 
 # but we also want to _see_ the output in the action, so we know why we're failing. this proves a bit challenging.
 # example use is rubocop report which will print fail details vs. a certain string if NO fails.
-
+#hmm.
 
 jobs:
   printbad:
     runs-on: ubuntu-latest
     steps:
       - run: |
+          # note rubocop results go to stdout
           # echo "foo bar" | tee -a /dev/tty | grep --silent "boo"
           # echo "foo bar" | tee -a /dev/stdout | grep --silent "boo"
           echo -e "foo\nbar" &> rubocop.out && cat rubocop.out && grep --silent "no offenses detected" rubocop.out
